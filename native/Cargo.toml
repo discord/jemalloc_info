@@ -1,0 +1,9 @@
+[package]
+name = "jemalloc-info"
+version = "0.1.0"
+authors = ["oceans <sea@likeanocean.com>"]
+edition = "2018"
+
+[dependencies]
+jemalloc-ctl = { version = "*" }
+rustler = "0.21.0"
