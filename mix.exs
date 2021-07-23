@@ -8,6 +8,7 @@ defmodule JemallocStats.MixProject do
       elixir: "~> 1.7",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
+      docs: docs(),
       package: package()
     ]
   end
@@ -24,6 +25,15 @@ defmodule JemallocStats.MixProject do
     [
       # {:dep_from_hexpm, "~> 0.3.0"},
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"},
+    ]
+  end
+
+  defp docs do
+    [
+      name: "JemallocInfo",
+      extras: ["README.md"],
+      main: "readme",
+      source_url: "https://github.com/discord/jemalloc_info"
     ]
   end
 
