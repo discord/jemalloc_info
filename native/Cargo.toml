@@ -8,5 +8,5 @@ authors = ["oceans <sea@likeanocean.com>"]
 edition = "2018"
 
 [dependencies]
-jemalloc-ctl = { version = "*" }
+jemalloc-ctl = "0.3"
 rustler = "0.21.0"
