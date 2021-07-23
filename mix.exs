@@ -37,14 +37,14 @@ defmodule JemallocStats.MixProject do
   end
 
   defp package do
-  [
-    name: :jemalloc_info,
-    description: "A small library for exporting jemalloc allocation data in Elixir",
-    maintainers: ["Discord Core Infrastructure"],
-    licenses: ["MIT"],
-    links: %{
-      "GitHub" => "https://github.com/discord/jemalloc_info"
-    }
-  ]
+    [
+      name: :jemalloc_info,
+      description: "A small library for exporting jemalloc allocation data in Elixir",
+      maintainers: ["Discord Core Infrastructure"],
+      licenses: ["MIT"],
+      links: %{
+        "GitHub" => "https://github.com/discord/jemalloc_info"
+      }
+    ]
   end
 end
