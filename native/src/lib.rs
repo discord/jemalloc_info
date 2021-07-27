@@ -1,7 +1,7 @@
 use rustler::{Error, NifResult};
 
 #[derive(rustler::NifMap)]
-struct JemallocStats {
+pub struct JemallocStats {
     active: u64,
     allocated: u64,
     epoch: u64,
@@ -30,7 +30,7 @@ macro_rules! jemalloc_stat_value {
 }
 
 #[rustler::nif]
-fn allocation_info() -> NifResult<JemallocStats> {
+pub fn allocation_info() -> NifResult<JemallocStats> {
     jemalloc_ctl::epoch::mib().and_then(|x| x.advance()).ok();
 
     Ok(JemallocStats {
