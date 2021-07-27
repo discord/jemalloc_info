@@ -30,7 +30,7 @@ macro_rules! jemalloc_stat_value {
 }
 
 #[rustler::nif]
-pub fn allocation_info() -> NifResult<JemallocStats> {
+pub fn jemalloc_allocation_info() -> NifResult<JemallocStats> {
     jemalloc_ctl::epoch::mib().and_then(|x| x.advance()).ok();
 
     Ok(JemallocStats {
