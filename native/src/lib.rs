@@ -1,3 +1,7 @@
+// False positive for NifMap lifetimes
+// see https://github.com/rust-lang/rust-clippy/issues/4291
+#![allow(clippy::extra_unused_lifetimes)]
+
 use rustler::{Error, NifResult};
 
 #[derive(rustler::NifMap)]
