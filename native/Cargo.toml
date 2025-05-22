@@ -1,13 +1,13 @@
 [package]
 name = "jemalloc-info"
 description = "A small library for exporting jemalloc allocation data in Elixir"
-repository = "https://github.com/discord/jemalloc_info"
+repository = "https://github.com/marinac-dev/jemalloc_info"
 license = "MIT"
-version = "0.5.0"
-authors = ["oceans <sea@likeanocean.com>"]
-edition = "2018"
+version = "0.6.0"
+authors = ["oceans <sea@likeanocean.com>", "marinac-dev"]
+edition = "2024"
 readme = "../README.md"
 
 [dependencies]
-jemalloc-ctl = "0.5.0"
-rustler = "0.25.0"
+jemalloc-ctl = "0.5.4"
+rustler = "0.36.1"

@@ -26,3 +26,6 @@ jemalloc_info-*.tar
 
 # Don't store the rust lockfile since this is a library
 Cargo.lock
+
+# Ignore the rust build artifacts
+target/

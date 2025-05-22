@@ -1,7 +1,3 @@
-// False positive for NifMap lifetimes
-// see https://github.com/rust-lang/rust-clippy/issues/4291
-#![allow(clippy::extra_unused_lifetimes)]
-
 use rustler::{Error, NifResult};
 
 #[derive(rustler::NifMap)]
@@ -20,7 +16,7 @@ macro_rules! jemalloc_value {
         jemalloc_ctl::$name::mib()
             .and_then(|x| x.read())
             .map(|x| x as u64)
-            .map_err(|x| Error::Term(Box::new(x.to_string())))
+            .map_err(|e| Error::Term(Box::new(format!("jemalloc error: {e:?}"))))
     };
 }
 
@@ -29,13 +25,16 @@ macro_rules! jemalloc_stat_value {
         jemalloc_ctl::stats::$name::mib()
             .and_then(|x| x.read())
             .map(|x| x as u64)
-            .map_err(|x| Error::Term(Box::new(x.to_string())))
+            .map_err(|e| Error::Term(Box::new(format!("jemalloc error: {e:?}"))))
     };
 }
 
+/// Returns current jemalloc statistics as a struct.
 #[rustler::nif]
 pub fn jemalloc_allocation_info() -> NifResult<JemallocStats> {
-    jemalloc_ctl::epoch::mib().and_then(|x| x.advance()).ok();
+    jemalloc_ctl::epoch::mib()
+        .and_then(|x| x.advance())
+        .map_err(|e| Error::Term(Box::new(format!("epoch advance error: {e:?}"))))?;
 
     Ok(JemallocStats {
         active: jemalloc_stat_value!(active)?,
