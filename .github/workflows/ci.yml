@@ -54,10 +54,6 @@ jobs:
         - nightly
         - nightly-2021-01-25
         beam-pair:
-        - otp-version: '21.3'
-          elixir-version: 1.7.4
-        - otp-version: '23.3'
-          elixir-version: 1.11.4
         - otp-version: '24'
           elixir-version: 1.11.4
         - otp-version: '24'
