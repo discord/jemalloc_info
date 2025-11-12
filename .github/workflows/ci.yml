@@ -17,7 +17,7 @@ jobs:
     - uses: erlef/setup-elixir@v1
       with:
         otp-version: '24.0'
-        elixir-version: 1.12.2
+        elixir-version: 1.15.8
     - uses: actions-rs/toolchain@v1
       with:
         toolchain: stable
@@ -39,7 +39,7 @@ jobs:
     - uses: erlef/setup-elixir@v1
       with:
         otp-version: '24.0'
-        elixir-version: 1.12.2
+        elixir-version: 1.15.8
     - run: cargo fmt --all -- --check
       working-directory: ./native
     - run: mix format --check-formatted
@@ -62,6 +62,12 @@ jobs:
           elixir-version: 1.11.4
         - otp-version: '24.0'
           elixir-version: 1.12.2
+        - otp-version: '24.0'
+          elixir-version: 1.15.8
+        - otp-version: '25.0'
+          elixir-version: 1.15.8
+        - otp-version: '25.0'
+          elixir-version: 1.18.1
     steps:
     - uses: actions/checkout@v2
     - uses: actions-rs/toolchain@v1
