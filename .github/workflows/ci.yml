@@ -7,8 +7,21 @@ on:
   pull_request:
     branches:
     - main
+  workflow_call:
 
 jobs:
+  docs:
+    name: Docs
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: dtolnay/rust-toolchain@stable
+    - run: cargo doc --no-deps
+      working-directory: ./native
+      env:
+        RUSTDOCFLAGS: -D warnings
+
+
   clippy:
     name: Clippy
     runs-on: ubuntu-latest
