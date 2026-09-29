@@ -5,8 +5,16 @@ on:
     tags:
       - "v*"
 
+permissions:
+  contents: read
+
 jobs:
+  ci:
+    name: CI
+    uses: ./.github/workflows/ci.yml
+
   publish:
+    needs: ci
     name: Publish to crates.io
     runs-on: ubuntu-latest
     environment: release
